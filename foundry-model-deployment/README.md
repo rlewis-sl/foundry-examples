@@ -35,3 +35,12 @@ Authentication is handled by the `DefaultAzureCredential()` function. It will at
 On Windows, Microsoft Azure CLI is available through the Scott Logic "Company Portal".
 
 Log in with `az login` before running the agent.
+
+The above works on WINDOWS.
+
+For WSL, there were 2 things I tried based on some things I read online...
+1. Install wslu (`sudo apt install wslu`)
+2. Stop WSL. (from PowerShell... `wsl --shutdown`)
+3. When running `az login` there is an error message ending "Operation not supported". CTRL-CLICK on the URL in the error message. This opens a web browser that logs you in to Azure. (On later attempts I no longer had to do this.)
+
+After that `DefaultAzureCredential()` still doesn't work on WSL, but `AzureCliCredential()` does.
