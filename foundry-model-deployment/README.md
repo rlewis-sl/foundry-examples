@@ -27,3 +27,11 @@ Microsoft Foundry example demonstrating
 - Click "Deploy"
 
 A model deployment is linked to a base model (e.g. "gpt-chat-latest" or "claude-opus-4-7"). It can be configured to automatically update to new versions of the base model when they are published. (Not sure of the details on how that works.)
+
+### Install the Azure CLI and log in
+
+Authentication is handled by the `DefaultAzureCredential()` function. It will attempt several methods for determining the user's Azure credentials. One reliable approach is to log in with the Azure CLI before running the agent.
+
+On Windows, Microsoft Azure CLI is available through the Scott Logic "Company Portal".
+
+Log in with `az login` before running the agent.
