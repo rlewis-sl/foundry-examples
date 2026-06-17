@@ -4,6 +4,37 @@ Demonstrates a minimal container-based hosted agent for Microsoft Foundry.
 - Uses azure-ai-agentserver-responses SDK to expose a Responses protocol endpoint
 - "Agent" implementation is a simple canned response: "Hi, Bob"
 
+## Run script locally
+
+```bash
+cd byo-canned-response
+python3 main.py
+```
+
+Once the agent is running, it responds to requests sent to http://localhost:8088/responses
+
+See [Notes/Request Body](#request-body) section for the expected format of the request body.
+
+## Run docker container locally
+
+### Build docker image
+
+```bash
+cd byo-canned-response
+docker build -t byo-canned-response .
+```
+
+### Start docker container
+
+```bash
+cd byo-canned-response
+docker run -p 8088:808/tcp byo-canned-response
+```
+
+Once the container is running, the agent responds to requests sent to http://localhost:8088/responses, the same as when the script is run directly.
+
+
+## Notes
 
 Based on this example: https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/bring-your-own/responses/hello-world
 
@@ -23,7 +54,9 @@ The host automatically maps five endpoints:
 
 ### Request Body
 
-The Responses protocol is essentially the OpenAI /responses API.
+The Responses protocol is essentially the OpenAI /responses API.  
+
+(Can't find good HTTP-level documentation. OpenAI has a Python library, but ultimately it's just HTTP. Note that the response body can be much more complex than shown here.)
 
 Example simple request...
 
@@ -33,6 +66,8 @@ POST http://localhost:8088/responses
     "input": "Hello"
 }
 ```
+
+### Response Body
 
 Example response body...
 
@@ -70,10 +105,3 @@ Example response body...
     "background": false
 }
 ```
-
-
-## Deployment
-
-1. Build the Docker image
-2. Push Docker image to Azure Container Registry (ACR)
-3. Create an agent in Foundry that deploys containers based on the image to serve agent requests
