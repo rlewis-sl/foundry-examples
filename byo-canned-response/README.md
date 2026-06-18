@@ -1,6 +1,6 @@
 # **byo-canned-response**
 
-Demonstrates a minimal container-based hosted agent for Microsoft Foundry.
+Demonstrates a minimal agent using the Responses protocol.
 - Uses azure-ai-agentserver-responses SDK to expose a Responses protocol endpoint
 - "Agent" implementation is a simple canned response: "Hi, Bob"
 
@@ -62,8 +62,11 @@ Example simple request...
 
 ```
 POST http://localhost:8088/responses
+Content-Type: application/json
+
 {
-    "input": "Hello"
+    "input": "Hello",
+    "stream": false
 }
 ```
 
