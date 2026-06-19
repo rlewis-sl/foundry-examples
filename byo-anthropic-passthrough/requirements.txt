@@ -1,0 +1,3 @@
+anthropic==0.111.0
+azure-ai-agentserver-responses
+python-dotenv==1.2.2

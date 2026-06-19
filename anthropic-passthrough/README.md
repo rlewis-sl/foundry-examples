@@ -1,4 +1,4 @@
-# **anthropic-pass-through**
+# **anthropic-passthrough**
 
 Microsoft Foundry example demonstrating
 - calling an Anthropic API endpoint exposed via Microsoft Foundry

@@ -1,4 +1,4 @@
-# anthropic-pass-through (example agent)
+# anthropic-passthrough (example agent)
 
 from anthropic import AnthropicFoundry
 from dotenv import load_dotenv
