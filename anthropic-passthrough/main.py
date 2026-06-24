@@ -12,6 +12,9 @@ client = AnthropicFoundry(
 
     # base_url is mutually exclusive with resource, so only set if not using resource
     # base_url="https://rlewis-staffing-test-resource.services.ai.azure.com/anthropic/"
+
+    # OTHER PARAMETERS: (optional)
+    # azure_ad_token_provider: A callable that returns an Azure AD token for authentication. If not provided, the SDK will attempt to use DefaultAzureCredential.
 )
 
 message = client.messages.create(
